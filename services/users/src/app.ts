@@ -14,7 +14,7 @@ app.use("/api/v1/users", userRoutes);
 
 // handle undefined routes
 
-// app.use("*", (req: Request, res: Response, next: NextFunction) => {
+// app.all("*", (req: Request, res: Response, next: NextFunction) => {
 //   next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
 // });
 app.use(globalErrorHandler);
