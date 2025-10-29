@@ -1,16 +1,15 @@
 import express from "express";
+import {
+  login,
+  refreshToken,
+  registerUser,
+} from "../controllers/user.controller";
 const router = express.Router();
 
 // public routes
-router.post("/signup", (req, res) => {
-  // TODO: handle signup
-  res.send("signup");
-});
-
-router.post("/login", (req, res) => {
-  // TODO: handle login
-  res.send("login");
-});
+router.post("/signup", registerUser);
+router.post("/login", login);
+router.get("/refresh-token", refreshToken);
 
 // protect routes
 router.patch("/updatePassword", (req, res) => {

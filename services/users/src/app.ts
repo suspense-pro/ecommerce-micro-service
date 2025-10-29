@@ -1,14 +1,20 @@
 import express, { NextFunction, Request, Response } from "express";
-import AppError from "./utils/appError";
 import { globalErrorHandler } from "./middlewares/errorHandler";
+import cookieParser from "cookie-parser";
+import dotenv from 'dotenv'
 
 import userRoutes from "./routes/user.route";
+
+dotenv.config();
+
 
 const app = express();
 
 // body parser
 app.use(express.json());
 
+// cookie parser
+app.use(cookieParser());
 // routes
 app.use("/api/v1/users", userRoutes);
 
